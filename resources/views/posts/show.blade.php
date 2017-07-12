@@ -2,8 +2,9 @@
 
 @section('content')
   <a href="/posts" class="btn btn-default">Go Back</a>
-  <h1>{{$post->title}}</h1>
-  <img style="width:100%" src="/storage/cover_images/{{$post->cover_image}}">
+  <h1>{{$post->crop_name}}</h1>
+  <h2>{{$post->strain}}</h2>
+  <img style="width:50%" src="/storage/cover_images/{{$post->cover_image}}">
   <br><br>
   <div>
     {!!$post->body!!}
@@ -16,6 +17,7 @@
   @if(!Auth::guest())
       @if (Auth::user()->id == $post->user_id)
         <a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a>
+        <a href="" class="btn btn-default">Add Week</a>
 
         {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
             {{Form::hidden('_method', 'DELETE')}}
