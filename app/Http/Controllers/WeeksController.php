@@ -43,28 +43,26 @@ class WeeksController extends Controller
         'dosage' => 'required',
         'temperature' => 'required',
         'humidity' => 'required',
+        'week_image'=> 'image|nullable|max:1999',
 
       ]);
 
-      /* code to add image later
-
       //Handle File upload
-      if($request->hasFile('cover_image')){
+      if($request->hasFile('week_image')){
         // Get filename with the extension
-        $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+        $filenameWithExt = $request->file('week_image')->getClientOriginalName();
         // Get just filename
         $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
         // Get just extension
-        $extension = $request->file('cover_image')->getClientOriginalExtension();
+        $extension = $request->file('week_image')->getClientOriginalExtension();
         // Filename to Store
         $fileNameToStore = $filename. '_' .time().'.'.$extension;
         // Upload image
-        $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+        $path = $request->file('week_image')->storeAs('public/week_images', $fileNameToStore);
       } else {
         $fileNameToStore = 'noimage.jpg';
       }
 
-      */
 
       // Create Posts
       $week = new Week;
@@ -74,6 +72,8 @@ class WeeksController extends Controller
       $week->temperature = $request->input('temperature');
       $week->humidity = $request->input('humidity');
       $week->notes = $request->input('notes');
+      $week->week_image = $fileNameToStore;
+      $week->post_id = 0;//where do i get the post id????
       $week->save();
 
       return redirect('/posts')->with('success', 'Week Created');
@@ -87,7 +87,9 @@ class WeeksController extends Controller
      */
     public function show($id)
     {
-        //
+
+      $week = Week::find($id);
+      return view('weeks.show')->with('week', $week);
     }
 
     /**
