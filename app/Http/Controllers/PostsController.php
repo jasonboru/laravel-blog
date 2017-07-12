@@ -55,7 +55,8 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-          'title' => 'required',
+          'crop_name' => 'required',
+          'strain' => 'required',
           'body' => 'required',
           'cover_image' => 'image|nullable|max:1999'
         ]);
@@ -78,7 +79,8 @@ class PostsController extends Controller
 
         // Create Posts
         $post = new Post;
-        $post->title = $request->input('title');
+        $post->crop_name = $request->input('crop_name');
+        $post->strain = $request->input('strain');
         $post->body = $request->input('body');
         $post->user_id = auth()->user()->id;
         $post->cover_image = $fileNameToStore;
