@@ -8,4 +8,5 @@ class Week extends Model
 {
   public function post() {
     return $this->belongsTo('App\Post');
+  }
 }
