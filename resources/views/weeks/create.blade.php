@@ -26,7 +26,10 @@
     </div>
     <div class="form-group">
       {{Form::label('notes', 'Notes')}}
-      {{Form::textarea('notes', '', ['class' => 'form-control', 'placeholder' => 'Notes'])}}
+      {{Form::textarea('notes', '', ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'Notes'])}}
+    </div>
+    <div class="form-group">
+      {{Form::file('week_image')}}
     </div>
     {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
   {!! Form::close() !!}
