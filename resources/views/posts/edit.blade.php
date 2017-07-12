@@ -5,8 +5,12 @@
 
   {!! Form::open(['action' => ['PostsController@update', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     <div class="form-group">
-      {{Form::label('title', 'Title')}}
-      {{Form::text('title', $post->title, ['class' => 'form-control', 'placeholder' => 'Title'])}}
+      {{Form::label('crop_name', 'Crop Name')}}
+      {{Form::text('crop_name', $post->crop_name, ['class' => 'form-control', 'placeholder' => 'Crop Name'])}}
+    </div>
+    <div class="form-group">
+      {{Form::label('strain', 'Strain')}}
+      {{Form::text('strain', $post->strain, ['class' => 'form-control', 'placeholder' => 'Strain'])}}
     </div>
     <div class="form-group">
       {{Form::label('body', 'Body')}}
