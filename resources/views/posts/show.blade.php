@@ -15,18 +15,18 @@
   <small>Written on {{$post->created_at}} by {{$post->user->name}}</small>
   <hr>
 
-  {{-- add in the weeks for each post
 
-  <h1>weeks</h1>
+
+  <h1>Weeks</h1>
     @if(count($weeks) > 0)
         @foreach($weeks as $week)
           <div class="well">
             <div class="row">
               <div class="col-md-3 col-sm-3">
-                <img style="height:120px" src="/storage/cover_images/{{$week->cover_image}}">
+                <img style="height:120px" src="/storage/cover_images/{{$post->cover_image}}">
               </div>
               <div class="col-md-9 col-sm-9">
-                <h3><a href="/weeks/{{$week->id}}">{{$week->week_num}}</a></h3>
+                <h3><a href="/weeks/{{$week->id}}">Week # {{$week->week_num}}</a></h3>
                 <small>Written on {{$week->created_at}}</small>
               </div>
             </div>
@@ -37,7 +37,7 @@
         <p>No weeks found</p>
       @endif
 
-  --}}
+
 
   @if(!Auth::guest())
       @if (Auth::user()->id == $post->user_id)
