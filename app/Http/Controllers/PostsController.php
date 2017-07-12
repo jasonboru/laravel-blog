@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Post;
+use App\Week;
 use DB;
 
 class PostsController extends Controller
@@ -33,7 +34,8 @@ class PostsController extends Controller
         //$posts = Post::orderBy('title','desc')->get();
 
         $posts = Post::orderBy('created_at','desc')->paginate(10);
-        return view('posts.index')->with('posts', $posts);
+        $weeks = Week::orderBy('week_num', 'asc');
+        return view('posts.index')->with('posts', $posts)->with('weeks', $weeks);
     }
 
     /**
@@ -98,7 +100,8 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        return view('posts.show')->with('post', $post);
+        $weeks = Week::orderBy('week_num', 'asc');
+        return view('posts.show')->with('post', $post)->with('weeks', $weeks);
     }
 
     /**
