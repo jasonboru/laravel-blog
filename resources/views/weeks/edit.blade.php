@@ -31,6 +31,7 @@
     <div class="form-group">
       {{Form::file('week_image')}}
     </div>
+    {{Form::hidden('post_id', $post)}}
     {{Form::hidden('_method', 'PUT')}}
     {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
   {!! Form::close() !!}
