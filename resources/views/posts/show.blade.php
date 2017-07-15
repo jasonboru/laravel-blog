@@ -18,31 +18,35 @@
 
 
   <h1>Weeks</h1>
-    @if(count($weeks) > 0)
+     @if(count($weeks) > 0)
         @foreach($weeks as $week)
           <div class="well">
             <div class="row">
               <div class="col-md-3 col-sm-3">
-                <img style="height:120px" src="/storage/cover_images/{{$post->cover_image}}">
+                <a href="/weeks/{{$week->id}}">
+                  <img style="width:100%" src="/storage/week_images/{{$week->week_image}}">
+                </a>
               </div>
               <div class="col-md-9 col-sm-9">
                 <h3><a href="/weeks/{{$week->id}}">Week # {{$week->week_num}}</a></h3>
+                <div>{!!$week->notes!!}</div>
+                <hr>
                 <small>Written on {{$week->created_at}}</small>
               </div>
             </div>
 
           </div>
         @endforeach
-      @else
+    @else
         <p>No weeks found</p>
-      @endif
+    @endif
 
 
 
   @if(!Auth::guest())
       @if (Auth::user()->id == $post->user_id)
         <a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a>
-        <a href="/weeks/create" class="btn btn-primary">Add Week</a>
+        <a href="/weeks/create?post={{ $post->id }}" class="btn btn-primary">Add Week</a>
 
         {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
             {{Form::hidden('_method', 'DELETE')}}
