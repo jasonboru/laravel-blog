@@ -4,7 +4,10 @@
   <a href="/posts" class="btn btn-default">Go Back</a>
   <h1>{{$post->crop_name}}</h1>
   <h2>{{$post->strain}}</h2>
-  <img style="width:50%" src="/storage/cover_images/{{$post->cover_image}}">
+  {{-- <img style="width:50%" src="/storage/cover_images/{{$post->cover_image}}"> --}}
+  <a href="/storage/cover_images/{{$post->cover_image}}" data-lightbox="{{$post->cover_image}}" data-title="{{$post->crop_name}} - {{$post->strain}}">
+    <img style="width:50%" src="/storage/cover_images/{{$post->cover_image}}">
+  </a>
   <br><br>
   <div>
     {!!$post->body!!}
