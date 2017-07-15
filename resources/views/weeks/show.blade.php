@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+  <a href="/posts/{{$week->post_id}}" class="btn btn-default">Go Back</a>
 
   <h1>Week # {{$week->week_num}}</h1>
 
@@ -63,7 +64,7 @@
 
   @if(!Auth::guest())
     {{--  @if (Auth::user()->id == $post->user_id) --}}
-        <a href="/weeks/{{$week->id}}/edit" class="btn btn-default">Edit</a>
+        <a href="/weeks/{{$week->id}}/edit?post={{ $week->post_id }}" class="btn btn-default">Edit</a>
 
         {!!Form::open(['action' => ['WeeksController@destroy', $week->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
             {{Form::hidden('_method', 'DELETE')}}
