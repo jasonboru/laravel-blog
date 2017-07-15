@@ -2,6 +2,7 @@
 
 @section('content')
   <h1>Create New Week</h1>
+  {{--<p>post {{ $post }}</p> --}}
 
   {!! Form::open(['action' => 'WeeksController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     <div class="form-group">
@@ -31,6 +32,7 @@
     <div class="form-group">
       {{Form::file('week_image')}}
     </div>
+    {{Form::hidden('post_id', $post)}}
     {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
   {!! Form::close() !!}
 
