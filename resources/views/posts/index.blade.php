@@ -7,7 +7,9 @@
           <div class="well">
             <div class="row">
               <div class="col-md-3 col-sm-3">
+                <a href="/posts/{{$post->id}}">
                 <img style="height:120px" src="/storage/cover_images/{{$post->cover_image}}">
+                </a>
               </div>
               <div class="col-md-9 col-sm-9">
                 <h3><a href="/posts/{{$post->id}}">{{$post->crop_name}}</a></h3>
