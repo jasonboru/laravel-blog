@@ -12,6 +12,26 @@
       {{Form::label('strain', 'Strain')}}
       {{Form::text('strain', $post->strain, ['class' => 'form-control', 'placeholder' => 'Strain'])}}
     </div>
+    <div class="form-inline">
+      {{Form::select('method', ['Hydroponics - Hand Watered' => 'Hydroponics - Hand Watered',
+                                'Hydroponics - Deep Water Culture' => 'Hydroponics - Deep Water Culture',
+                                'Hydroponics - Ebb & Flow' => 'Hydroponics - Ebb & Flow',
+                                'Hydroponics - Aeroponics' => 'Hydroponics - Aeroponics',
+                                'Soil - Containers' => 'Soil - Containers',
+                                'Soil - Raised Bed' => 'Soil - Raised Bed',], $post->method)}}
+
+      {{Form::select('location', ['Indoors' => 'Indoors',
+                                'Greenhouse' => 'Greenhouse',
+                                'Outdoors' => 'Outdoors',], $post->location)}}
+
+      {{Form::select('lighting', ['Natural Sunlight' => 'Natural Sunlight',
+                                'High Intensity Discharge' => 'High Intensity Discharge',
+                                'T5 HO Flourescent' => 'T5 HO Flourescent',
+                                'LED - Light Emitting Diode' => 'LED - Light Emitting Diode',
+                                'Other' => 'Other',], $post->lighting)}}
+
+    </div>
+
     <div class="form-group">
       {{Form::label('body', 'Body')}}
       {{Form::textarea('body', $post->body, ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'Body Text'])}}
