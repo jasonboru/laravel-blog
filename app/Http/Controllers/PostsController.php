@@ -34,8 +34,7 @@ class PostsController extends Controller
         //$posts = Post::orderBy('title','desc')->get();
 
         $posts = Post::orderBy('created_at','desc')->paginate(10);
-        $weeks = Week::orderBy('week_num', 'asc');
-        return view('posts.index')->with('posts', $posts)->with('weeks', $weeks);
+        return view('posts.index')->with('posts', $posts);
     }
 
     /**
@@ -100,7 +99,7 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        $weeks = Week::orderBy('week_num', 'asc');
+        $weeks = Week::all()->where('post_id', '=', $id);
         return view('posts.show')->with('post', $post)->with('weeks', $weeks);
     }
 
