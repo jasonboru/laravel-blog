@@ -32,6 +32,33 @@
 
       <div class="row">
         <div class="col-md-3 col-sm-3">
+          <h4>Additives:</h4>
+        </div>
+        <div class="col-md-9 col-sm-9">
+          <div class="well"> {{$week->additives}}</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3 col-sm-3">
+          <h4>Nutrient Strength:</h4>
+        </div>
+        <div class="col-md-9 col-sm-9">
+          <div class="well"> {{$week->tds}}</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3 col-sm-3">
+          <h4>pH level:</h4>
+        </div>
+        <div class="col-md-9 col-sm-9">
+          <div class="well"> {{$week->ph}}</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3 col-sm-3">
           <h4>Avgerage Temperature:</h4>
         </div>
         <div class="col-md-9 col-sm-9">
