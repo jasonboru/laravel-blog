@@ -17,6 +17,18 @@
       {{Form::text('dosage', $week->dosage, ['class' => 'form-control', 'placeholder' => 'Dosage Rate'])}}
     </div>
     <div class="form-group">
+      {{Form::label('additives', 'Additives')}}
+      {{Form::text('additives', $week->additives, ['class' => 'form-control', 'placeholder' => 'Additives'])}}
+    </div>
+    <div class="form-group">
+      {{Form::label('Nutrient Strength', 'Nutrient Strength')}}
+      {{Form::text('tds', $week->tds, ['class' => 'form-control', 'placeholder' => 'Nutrient Strength'])}}
+    </div>
+    <div class="form-group">
+      {{Form::label('pH Level', 'pH Level')}}
+      {{Form::text('ph', $week->ph, ['class' => 'form-control', 'placeholder' => 'pH Level'])}}
+    </div>
+    <div class="form-group">
       {{Form::label('temperature', 'Average Temperature')}}
       {{Form::text('temperature', $week->temperature, ['class' => 'form-control', 'placeholder' => 'Average Temperature'])}}
     </div>
