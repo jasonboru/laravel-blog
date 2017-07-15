@@ -16,11 +16,12 @@
                         <th>Grows</th>
                         <th></th>
                         <th></th>
+                        <th></th>
                       </tr>
                       @foreach($posts as $post)
                         <tr>
-                          <!--<td><img style="width:10%" src="/storage/cover_images/{{$post->cover_image}}"></td> -->
-                          <td>{{$post->crop_name}} - {{$post->strain}}</td>
+                          <td width="20%"><img style="width:100%" src="/storage/cover_images/{{$post->cover_image}}"></td>
+                          <td><a href="/posts/{{$post->id}}">{{$post->crop_name}}</a> - {{$post->strain}}</td>
                           <td><a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a></td>
                           <td>
                             {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
