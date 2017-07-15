@@ -82,6 +82,9 @@ class PostsController extends Controller
         $post = new Post;
         $post->crop_name = $request->input('crop_name');
         $post->strain = $request->input('strain');
+        $post->method = $request->input('method');
+        $post->location = $request->input('location');
+        $post->lighting = $request->input('lighting');
         $post->body = $request->input('body');
         $post->user_id = auth()->user()->id;
         $post->cover_image = $fileNameToStore;
@@ -131,8 +134,8 @@ class PostsController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-          'title' => 'required',
-          'body' => 'required'
+          'crop_name' => 'required',
+          'strain' => 'required'
         ]);
 
         //Handle File upload
@@ -151,8 +154,12 @@ class PostsController extends Controller
 
         // Create Posts
         $post = Post::find($id);
-        $post->title = $request->input('title');
+        $post->crop_name = $request->input('crop_name');
+        $post->strain = $request->input('strain');
         $post->body = $request->input('body');
+        $post->method = $request->input('method');
+        $post->location = $request->input('location');
+        $post->lighting = $request->input('lighting');
         if($request->hasFile('cover_image')){
           $post->cover_image = $fileNameToStore;
         }

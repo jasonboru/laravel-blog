@@ -4,10 +4,44 @@
   <a href="/posts" class="btn btn-default">Go Back</a>
   <h1>{{$post->crop_name}}</h1>
   <h2>{{$post->strain}}</h2>
-  {{-- <img style="width:50%" src="/storage/cover_images/{{$post->cover_image}}"> --}}
-  <a href="/storage/cover_images/{{$post->cover_image}}" data-lightbox="{{$post->cover_image}}" data-title="{{$post->crop_name}} - {{$post->strain}}">
-    <img style="width:50%" src="/storage/cover_images/{{$post->cover_image}}">
-  </a>
+
+  <div class="row">
+    <div class="col-md-6 col-sm-6">
+      <a href="/storage/cover_images/{{$post->cover_image}}" data-lightbox="{{$post->cover_image}}" data-title="{{$post->crop_name}} - {{$post->strain}}">
+        <img style="width:100%" src="/storage/cover_images/{{$post->cover_image}}">
+      </a>
+    </div>
+    <div class="col-md-6 col-sm-6">
+      <div class="row">
+        <div class="col-md-3 col-sm-3">
+          <h4>Method:</h4>
+        </div>
+        <div class="col-md-9 col-sm-9">
+          <div class="well"> {{$post->method}}</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3 col-sm-3">
+          <h4>Location:</h4>
+        </div>
+        <div class="col-md-9 col-sm-9">
+          <div class="well"> {{$post->location}}</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3 col-sm-3">
+          <h4>Lighting:</h4>
+        </div>
+        <div class="col-md-9 col-sm-9">
+          <div class="well"> {{$post->lighting}}</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <br><br>
   <div>
     {!!$post->body!!}
