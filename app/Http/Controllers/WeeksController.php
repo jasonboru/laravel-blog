@@ -70,6 +70,9 @@ class WeeksController extends Controller
       $week->week_num = $request->input('week_num');
       $week->nutrient = $request->input('nutrient');
       $week->dosage = $request->input('dosage');
+      $week->additives = $request->input('additives');
+      $week->tds = $request->input('tds');
+      $week->ph = $request->input('ph');
       $week->temperature = $request->input('temperature');
       $week->humidity = $request->input('humidity');
       $week->notes = $request->input('notes');
@@ -146,6 +149,9 @@ class WeeksController extends Controller
       $week->week_num = $request->input('week_num');
       $week->nutrient = $request->input('nutrient');
       $week->dosage = $request->input('dosage');
+      $week->additives = $request->input('additives');
+      $week->tds = $request->input('tds');
+      $week->ph = $request->input('ph');
       $week->temperature = $request->input('temperature');
       $week->humidity = $request->input('humidity');
       $week->notes = $request->input('notes');
