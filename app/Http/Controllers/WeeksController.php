@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Week;
+use App\Post;
 use DB;
 
 class WeeksController extends Controller
@@ -24,9 +25,9 @@ class WeeksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('weeks.create');
+        return view('weeks.create')->withPost($request->post);
     }
 
     /**
@@ -35,7 +36,7 @@ class WeeksController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Post $id)
     {
       $this->validate($request, [
         'week_num' => 'required',
@@ -73,7 +74,7 @@ class WeeksController extends Controller
       $week->humidity = $request->input('humidity');
       $week->notes = $request->input('notes');
       $week->week_image = $fileNameToStore;
-      $week->post_id = 0;//where do i get the post id????
+      $week->post_id = $request->input('post_id');
       $week->save();
 
       return redirect('/posts')->with('success', 'Week Created');
@@ -98,7 +99,7 @@ class WeeksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
       $week = Week::find($id);
 
@@ -107,7 +108,7 @@ class WeeksController extends Controller
         //return redirect('/posts')->with('error', 'Unauthorized Page');
       //}
 
-      return view('weeks.edit')->with('week', $week);
+      return view('weeks.edit')->with('week', $week)->withPost($request->post);
     }
 
     /**
@@ -151,7 +152,7 @@ class WeeksController extends Controller
       if($request->hasFile('week_image')){
         $week->week_image = $fileNameToStore;
       }
-      $week->post_id = 0;//where do i get the post id????
+
       $week->save();
 
       //return redirect('/weeks')->with('success', 'Week Updated');
