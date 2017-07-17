@@ -78,17 +78,73 @@
         <p>No weeks found</p>
     @endif
 
+    @if(!Auth::guest())
+        @if (Auth::user()->id == $post->user_id)
+          <a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a>
+          <a href="/weeks/create?post={{ $post->id }}" class="btn btn-primary">Add Week</a>
+
+          {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
+              {{Form::hidden('_method', 'DELETE')}}
+              {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+          {!!Form::close()!!}
+        @endif
+    @endif
+
+    <hr>
+
+    <div class="row">
+
+      <div class="col-md-8 col-md-offset-2">
+        <h2>Comments</h2>
+        @foreach($post->comments as $comment)
+          <div class="panel panel-default comment">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-md-9">
+                  Comment by: {{ $comment->name }}
+                </div>
+                <div class="col-md-3">
+                  <small> {{ $comment->created_at }} </small>
+                </div>
+              </div>
+            </div>
+            <div class="panel-body">{{ $comment->comment }}</div>
+          </div>
+        @endforeach
+      </div>
+    </div>
 
 
-  @if(!Auth::guest())
-      @if (Auth::user()->id == $post->user_id)
-        <a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a>
-        <a href="/weeks/create?post={{ $post->id }}" class="btn btn-primary">Add Week</a>
+    <div class="row">
+      <div id="comment-form" class="col-md-8 col-md-offset-2">
+        <h2>Add a new Comment</h2>
+        {{ Form::open(['route' => ['comments.store', $post->id], 'method' => 'POST']) }}
+          <div class="row">
 
-        {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
-            {{Form::hidden('_method', 'DELETE')}}
-            {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
-        {!!Form::close()!!}
-      @endif
-  @endif
+            <div class="col-md-6">
+              {{ Form::label('name', "Name:") }}
+              {{ Form::text('name', null, ['class' => 'form-control']) }}
+            </div>
+
+            <div class="col-md-6">
+              {{ Form::label('email', "Email:") }}
+              {{ Form::text('email', null, ['class' => 'form-control']) }}
+            </div>
+
+            <div class="col-md-12">
+              {{ Form::label('comment', "Comment:") }}
+              {{ Form::textarea('comment', null, ['class' => 'form-control', 'rows' => '5']) }}
+
+              {{ Form::submit('Add Comment', ['class' => 'btn-success btn-block', 'style' => 'margin:15px 0;']) }}
+            </div>
+
+          </div>
+
+        {{ Form::close()}}
+      </div>
+    </div>
+
+
+
+
 @endsection
