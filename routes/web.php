@@ -39,3 +39,4 @@ Route::get('/dashboard', 'DashboardController@index');
 
 // comments
 Route::post('comments/{post_id}', ['uses' => 'CommentsController@store', 'as' => 'comments.store']);
+Route::post('weekcomments/{week_id}', ['uses' => 'WeekcommentController@store', 'as' => 'weekcomments.store']);
