@@ -20,4 +20,8 @@ class Post extends Model
     public function weeks() {
       return $this->hasMany('App\Week');
     }
+
+    public function comments() {
+      return $this->hasMany('App\Comment');
+    }
 }
