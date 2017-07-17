@@ -102,4 +102,55 @@
     {{--  @endif --}}
   @endif
 
+  <div class="row">
+
+    <div class="col-md-8 col-md-offset-2">
+      <h2>Comments</h2>
+      @foreach($week->weekcomments as $comment)
+        <div class="panel panel-default comment">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-md-9">
+                Comment by: {{ $comment->name }}
+              </div>
+              <div class="col-md-3">
+                <small> {{ $comment->created_at }} </small>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">{{ $comment->comment }}</div>
+        </div>
+      @endforeach
+    </div>
+  </div>
+
+  <div class="row">
+    <div id="weekcomment-form" class="col-md-8 col-md-offset-2">
+      <h2>Add a new Comment</h2>
+      {{ Form::open(['route' => ['weekcomments.store', $week->id], 'method' => 'POST']) }}
+        <div class="row">
+
+          <div class="col-md-6">
+            {{ Form::label('name', "Name:") }}
+            {{ Form::text('name', null, ['class' => 'form-control']) }}
+          </div>
+
+          <div class="col-md-6">
+            {{ Form::label('email', "Email:") }}
+            {{ Form::text('email', null, ['class' => 'form-control']) }}
+          </div>
+
+          <div class="col-md-12">
+            {{ Form::label('comment', "Comment:") }}
+            {{ Form::textarea('comment', null, ['class' => 'form-control', 'rows' => '5']) }}
+
+            {{ Form::submit('Add Comment', ['class' => 'btn-success btn-block', 'style' => 'margin:15px 0;']) }}
+          </div>
+
+        </div>
+
+      {{ Form::close()}}
+    </div>
+  </div>
+
 @endsection
