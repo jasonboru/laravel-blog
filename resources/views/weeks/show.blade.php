@@ -7,8 +7,8 @@
 
   <div class="row">
     <div class="col-md-6 col-sm-6">
-      <a href="/storage/week_images/{{$week->week_image}}" data-lightbox="{{$week->week_image}}" data-title="Week # {{$week->week_num}}">
-        <img style="width:100%" src="/storage/week_images/{{$week->week_image}}">
+      <a href="https://s3.amazonaws.com/final-project-growshow/uploads/{{$week->week_image}}" data-lightbox="{{$week->week_image}}" data-title="Week # {{$week->week_num}}">
+        <img style="width:100%" src="https://s3.amazonaws.com/final-project-growshow/uploads/{{$week->week_image}}">
       </a>
     </div>
     <div class="col-md-6 col-sm-6">

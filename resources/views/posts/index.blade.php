@@ -8,7 +8,7 @@
             <div class="row">
               <div class="col-md-3 col-sm-3">
                 <a href="/posts/{{$post->id}}">
-                <img style="height:120px" src="/storage/cover_images/{{$post->cover_image}}">
+                <img style="height:120px" src="https://s3.amazonaws.com/final-project-growshow/uploads/{{$post->cover_image}}">
                 </a>
               </div>
               <div class="col-md-9 col-sm-9">

@@ -7,8 +7,8 @@
 
   <div class="row">
     <div class="col-md-6 col-sm-6">
-      <a href="/storage/cover_images/{{$post->cover_image}}" data-lightbox="{{$post->cover_image}}" data-title="{{$post->crop_name}} - {{$post->strain}}">
-        <img style="width:100%" src="/storage/cover_images/{{$post->cover_image}}">
+      <a href="https://s3.amazonaws.com/final-project-growshow/uploads/{{$post->cover_image}}" data-lightbox="{{$post->cover_image}}" data-title="{{$post->crop_name}} - {{$post->strain}}">
+        <img style="width:100%" src="https://s3.amazonaws.com/final-project-growshow/uploads/{{$post->cover_image}}">
       </a>
     </div>
     <div class="col-md-6 col-sm-6">
@@ -61,7 +61,7 @@
             <div class="row">
               <div class="col-md-3 col-sm-3">
                 <a href="/weeks/{{$week->id}}">
-                  <img style="width:100%" src="/storage/week_images/{{$week->week_image}}">
+                  <img style="width:100%" src="https://s3.amazonaws.com/final-project-growshow/uploads/{{$week->week_image}}">
                 </a>
               </div>
               <div class="col-md-9 col-sm-9">
