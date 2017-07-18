@@ -86,7 +86,8 @@ class WeeksController extends Controller
       $week->post_id = $request->input('post_id');
       $week->save();
 
-      return redirect('/posts')->with('success', 'Week Created');
+      //return redirect('/posts')->with('success', 'Week Created');
+      return redirect()->action("WeeksController@show", $week->id)->with('success', 'Week Created');
     }
 
     /**
