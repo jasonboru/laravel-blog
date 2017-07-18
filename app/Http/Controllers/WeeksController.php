@@ -59,7 +59,13 @@ class WeeksController extends Controller
         // Filename to Store
         $fileNameToStore = $filename. '_' .time().'.'.$extension;
         // Upload image
-        $path = $request->file('week_image')->storeAs('public/week_images', $fileNameToStore);
+        //$path = $request->file('week_image')->storeAs('public/week_images', $fileNameToStore);
+
+        $file = $request->file('week_image');
+        $hashedName = $request->file('week_image')->hashName();
+
+        Storage::disk('s3')->put('uploads/' . $fileNameToStore, $file, 'public');
+
       } else {
         $fileNameToStore = 'noimage.jpg';
       }
@@ -76,7 +82,7 @@ class WeeksController extends Controller
       $week->temperature = $request->input('temperature');
       $week->humidity = $request->input('humidity');
       $week->notes = $request->input('notes');
-      $week->week_image = $fileNameToStore;
+      $week->week_image = $fileNameToStore . '/' . $hashedName;
       $week->post_id = $request->input('post_id');
       $week->save();
 
@@ -139,7 +145,13 @@ class WeeksController extends Controller
         // Filename to Store
         $fileNameToStore = $filename. '_' .time().'.'.$extension;
         // Upload image
-        $path = $request->file('week_image')->storeAs('public/week_images', $fileNameToStore);
+        //$path = $request->file('week_image')->storeAs('public/week_images', $fileNameToStore);
+
+        $file = $request->file('week_image');
+        $hashedName = $request->file('week_image')->hashName();
+
+        Storage::disk('s3')->put('uploads/' . $fileNameToStore, $file, 'public');
+
       } else {
         $fileNameToStore = 'noimage.jpg';
       }
@@ -156,7 +168,7 @@ class WeeksController extends Controller
       $week->humidity = $request->input('humidity');
       $week->notes = $request->input('notes');
       if($request->hasFile('week_image')){
-        $week->week_image = $fileNameToStore;
+        $week->week_image = $fileNameToStore . '/' . $hashedName;
       }
 
       $week->save();

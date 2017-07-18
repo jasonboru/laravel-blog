@@ -73,7 +73,13 @@ class PostsController extends Controller
           // Filename to Store
           $fileNameToStore = $filename. '_' .time().'.'.$extension;
           // Upload image
-          $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+          //$path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+
+          $file = $request->file('cover_image');
+          $hashedName = $request->file('cover_image')->hashName();
+
+          Storage::disk('s3')->put('uploads/' . $fileNameToStore, $file, 'public');
+
         } else {
           $fileNameToStore = 'noimage.jpg';
         }
@@ -87,7 +93,7 @@ class PostsController extends Controller
         $post->lighting = $request->input('lighting');
         $post->body = $request->input('body');
         $post->user_id = auth()->user()->id;
-        $post->cover_image = $fileNameToStore;
+        $post->cover_image = $fileNameToStore . '/' . $hashedName;
         $post->save();
 
         return redirect('/posts')->with('success', 'Post Created');
@@ -149,7 +155,13 @@ class PostsController extends Controller
           // Filename to Store
           $fileNameToStore = $filename. '_' .time().'.'.$extension;
           // Upload image
-          $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+          //$path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+
+          $file = $request->file('cover_image');
+          $hashedName = $request->file('cover_image')->hashName();
+
+          Storage::disk('s3')->put('uploads/' . $fileNameToStore, $file, 'public');
+
         }
 
         // Create Posts
@@ -161,7 +173,7 @@ class PostsController extends Controller
         $post->location = $request->input('location');
         $post->lighting = $request->input('lighting');
         if($request->hasFile('cover_image')){
-          $post->cover_image = $fileNameToStore;
+          $post->cover_image = $fileNameToStore . '/' . $hashedName;
         }
         $post->save();
 
