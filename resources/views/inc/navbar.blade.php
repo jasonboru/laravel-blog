@@ -28,6 +28,7 @@
                       <li><a href="/">Home</a></li>
                       <li><a href="/about">About</a></li>
                       <li><a href="/posts">All Grows</a></li>
+                      <li><a href="/posts/create">Create Post</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -37,13 +38,15 @@
                         <li><a href="{{ route('login') }}">Login</a></li>
                         <li><a href="{{ route('register') }}">Register</a></li>
                     @else
-                        <li><a href="/posts/create">Create Post</a></li>
+
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style=" position:relative; padding-left:50px;">
+                                <img src="https://s3.amazonaws.com/final-project-growshow/uploads/{{ Auth::user()->avatar}}" style="width:32px; height:32px; position:absolute; top:10px; left:10px; border-radius:50%;">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
+                              <li><a href="/profile">Profile</a></li>
                               <li><a href="/dashboard">Dashboard</a></li>
                                 <li>
                                     <a href="{{ route('logout') }}"
