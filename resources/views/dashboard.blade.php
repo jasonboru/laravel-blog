@@ -20,7 +20,7 @@
                       </tr>
                       @foreach($posts as $post)
                         <tr>
-                          <td width="20%"><img style="width:100%" src="/storage/cover_images/{{$post->cover_image}}"></td>
+                          <td width="20%"><img style="width:100%" src="https://s3.amazonaws.com/final-project-growshow/uploads/{{$post->cover_image}}"></td>
                           <td><a href="/posts/{{$post->id}}">{{$post->crop_name}}</a> - {{$post->strain}}</td>
                           <td><a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a></td>
                           <td>
