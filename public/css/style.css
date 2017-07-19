@@ -32,6 +32,7 @@ a:hover {
 
 .well {
   background: url(../images/linedpaper.png) repeat center;
+  box-shadow: 10px 10px 5px #888888;
 }
 
 .overlay{
@@ -53,6 +54,11 @@ a:hover {
 .btn-success, .btn-success:hover, .btn-success:active, .btn-success:visited {
     background-color: #5d3e25;
     border-color: #5d3e25;
+}
+
+.panel-default > .panel-heading {
+  background-color: #5d3e25;
+  color: #fff;
 }
 
 /* navbar */
@@ -189,5 +195,27 @@ a:hover {
 }
 
 .postNotes {
+  font-size: 170%;
+}
+
+/* week.show */
+
+.weekImg {
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.weekCatHeading {
+  font-size: 120%
+}
+
+.weekInputHeading{
+  font-size: 160%;
+}
+
+.weekInputResult {
+  color: #c16920;
+}
+
+.weekNotes {
   font-size: 170%;
 }

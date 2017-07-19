@@ -78,7 +78,7 @@
                 </a>
               </div>
               <div class="col-md-9 col-sm-9">
-                <h3><a href="/weeks/{{$week->id}}">Week # {{$week->week_num}}</a></h3>
+                <h3><a href="/weeks/{{$week->id}}?user={{ $post->user_id }}">Week # {{$week->week_num}}</a></h3>
                 <div>{!!$week->notes!!}</div>
                 <hr>
                 <small>Written on {{$week->created_at->format('m-d-Y')}}</small>
