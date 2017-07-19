@@ -1,6 +1,6 @@
 
 
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
 
@@ -14,7 +14,8 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/dashboard') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{-- {{ config('app.name', 'Laravel') }} --}}
+                    <img id="brandLogo" src="../images/RGB_logo_white.png" alt="Root Grow Bloom logo">
                 </a>
             </div>
 

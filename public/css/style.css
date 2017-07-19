@@ -1,0 +1,159 @@
+
+
+body {
+  background: url(../images/growshow-background3.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h1, h2, h3 {
+  font-family: 'Ultra', serif;
+  color: #5d3e25;
+}
+
+p {
+  font-family: 'Oswald', sans-serif;
+}
+
+a {
+  color: #5d3e25;
+}
+
+a:vistied {
+  color: #5d3e25;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #c16920;
+}
+
+.well {
+  background: url(../images/linedpaper.png) repeat center;
+}
+
+.overlay{
+  background-color: rgba(255, 255, 255, .8);
+  padding: 15px 30px;
+  margin-bottom: 20px;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #bdbe31;
+    border-color: #bdbe31;
+}
+
+/* navbar */
+.navbar-default {
+    background-color: #5d3e25;
+    border-color: #5d3e25;
+}
+/* Title */
+.navbar-default .navbar-brand {
+    color: #fff;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #d9d9d9;
+}
+/* Link */
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #d9d9d9;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #555;
+    background-color: #E7E7E7;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #fff;
+    background-color: #D5D5D5;
+}
+/* Caret */
+.navbar-default .navbar-nav > .dropdown > a .caret {
+    border-top-color: #777;
+    border-bottom-color: #777;
+}
+.navbar-default .navbar-nav > .dropdown > a:hover .caret,
+.navbar-default .navbar-nav > .dropdown > a:focus .caret {
+    border-top-color: #333;
+    border-bottom-color: #333;
+}
+.navbar-default .navbar-nav > .open > a .caret,
+.navbar-default .navbar-nav > .open > a:hover .caret,
+.navbar-default .navbar-nav > .open > a:focus .caret {
+    border-top-color: #555;
+    border-bottom-color: #555;
+}
+/* Mobile version */
+.navbar-default .navbar-toggle {
+    border-color: #DDD;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #DDD;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #CCC;
+}
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #777;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+          color: #333;
+    }
+}
+
+#brandLogo {
+  height: 25px;
+  margin-bottom: 5px;
+}
+
+/* index blade */
+#RGBlogo {
+  width: 60%;
+}
+
+#indexTitle {
+  color: #5d3e25;
+  font-size: 325%;
+}
+
+.indexBtn {
+  width: 100px;
+}
+
+/* about blade */
+.aboutTitle {
+  color: #5d3e25;
+}
+
+.aboutCopy {
+  text-indent: 30px;
+  font-size: 150%;
+}
+
+.aboutAddress {
+  font-size: 125%;
+}
+
+#aboutLogo {
+  width: 100%;
+}
+
+/* all grows index */
+
+.allGrowsImg {
+    box-shadow: 10px 10px 5px #888888;
+}
