@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddUserAvatar extends Migration
+class AddAvatarToPostComments extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AddUserAvatar extends Migration
      */
     public function up()
     {
-      Schema::table('users', function (Blueprint $table) {
+      Schema::table('comments', function (Blueprint $table) {
           $table->string('avatar')->default('default.jpg');
       });
     }
@@ -25,8 +25,8 @@ class AddUserAvatar extends Migration
      */
     public function down()
     {
-      Schema::table('users', function (Blueprint $table) {
-          $table->dropColumn('avatar')->default('default.jpg');
+      Schema::table('comments', function (Blueprint $table) {
+          $table->dropColumn('avatar');
       });
     }
 }
