@@ -219,3 +219,8 @@ a:hover {
 .weekNotes {
   font-size: 170%;
 }
+
+/* week.update */
+.weekSubmit {
+  margin-left: 15px;
+}
