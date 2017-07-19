@@ -48,6 +48,7 @@ class CommentsController extends Controller
         $comment = new Comment();
         $comment->name = $request->input('name');
         $comment->email = $request->input('email');
+        $comment->avatar = $request->input('avatar');
         $comment->comment = $request->input('comment');
         $comment->approved = true;
         $comment->post()->associate($post);

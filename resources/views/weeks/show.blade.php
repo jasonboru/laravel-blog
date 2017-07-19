@@ -122,10 +122,12 @@
             <div class="panel-heading">
               <div class="row">
                 <div class="col-md-9">
-                  Comment by: {{ $comment->name }}
+                  <img src="https://s3.amazonaws.com/final-project-growshow/uploads/{{ $comment->avatar}}" style="width:32px; height:32px; border-radius:50%;">
+
+                   {{ $comment->name }}
                 </div>
                 <div class="col-md-3">
-                  <small> {{ $comment->created_at }} </small>
+                  <small> {{ $comment->created_at->format('m,d,Y') }} </small>
                 </div>
               </div>
             </div>
@@ -143,18 +145,9 @@
               {{ Form::open(['route' => ['weekcomments.store', $week->id], 'method' => 'POST']) }}
                 <div class="row">
 
-                  {{-- <div class="col-md-6">
-                    {{ Form::label('name', "Name:") }}
-                    {{ Form::text('name', Auth::user()->name, ['class' => 'form-control']) }}
-                  </div>
-
-                  <div class="col-md-6">
-                    {{ Form::label('email', "Email:") }}
-                    {{ Form::text('email', Auth::user()->email, ['class' => 'form-control']) }}
-                  </div> --}}
-
                   {{Form::hidden('name', Auth::user()->name)}}
                   {{Form::hidden('email', Auth::user()->email)}}
+                  {{Form::hidden('avatar', Auth::user()->avatar)}}
 
                   <div class="col-md-12">
                     {{ Form::label('comment', "Comment:") }}

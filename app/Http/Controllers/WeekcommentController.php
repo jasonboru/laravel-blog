@@ -49,6 +49,7 @@ class WeekcommentController extends Controller
         $weekcomment->name = $request->input('name');
         $weekcomment->email = $request->input('email');
         $weekcomment->comment = $request->input('comment');
+        $weekcomment->avatar = $request->input('avatar');
         $weekcomment->approved = true;
         $weekcomment->week()->associate($week);
 
