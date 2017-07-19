@@ -15,7 +15,7 @@
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/dashboard') }}">
                     {{-- {{ config('app.name', 'Laravel') }} --}}
-                    <img id="brandLogo" src="../images/RGB_logo_white.png" alt="Root Grow Bloom logo">
+                    <img id="brandLogo" src="{{ asset('images/RGB_logo_white.png') }}" alt="Root Grow Bloom logo">
                 </a>
             </div>
 
