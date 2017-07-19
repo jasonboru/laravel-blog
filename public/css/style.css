@@ -45,6 +45,16 @@ a:hover {
     border-color: #bdbe31;
 }
 
+.btn-danger, .btn-danger:hover, .btn-danger:active, .btn-danger:visited {
+    background-color: #c16920;
+    border-color: #c16920;
+}
+
+.btn-success, .btn-success:hover, .btn-success:active, .btn-success:visited {
+    background-color: #5d3e25;
+    border-color: #5d3e25;
+}
+
 /* navbar */
 .navbar-default {
     background-color: #5d3e25;
@@ -156,4 +166,28 @@ a:hover {
 
 .allGrowsImg {
     box-shadow: 10px 10px 5px #888888;
+}
+
+/* grows.show */
+.strain {
+  color: #c16920;
+}
+
+.postInputResult {
+  color: #c16920;
+}
+.goBack {
+  margin-bottom: 15px;
+}
+
+.CropImg {
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.allWeekImg {
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.postNotes {
+  font-size: 170%;
 }
