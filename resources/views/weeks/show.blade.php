@@ -143,7 +143,7 @@
               {{ Form::open(['route' => ['weekcomments.store', $week->id], 'method' => 'POST']) }}
                 <div class="row">
 
-                  <div class="col-md-6">
+                  {{-- <div class="col-md-6">
                     {{ Form::label('name', "Name:") }}
                     {{ Form::text('name', Auth::user()->name, ['class' => 'form-control']) }}
                   </div>
@@ -151,7 +151,10 @@
                   <div class="col-md-6">
                     {{ Form::label('email', "Email:") }}
                     {{ Form::text('email', Auth::user()->email, ['class' => 'form-control']) }}
-                  </div>
+                  </div> --}}
+
+                  {{Form::hidden('name', Auth::user()->name)}}
+                  {{Form::hidden('email', Auth::user()->email)}}
 
                   <div class="col-md-12">
                     {{ Form::label('comment', "Comment:") }}
@@ -164,7 +167,7 @@
 
               {{ Form::close()}}
            @else
-             <h3><a href="/register">Register</a> an account to be able to add comments.</h3>
+             <h4>You need to be logged into your account to leave a comment. If you do not have an account you can <a href="/register">Register Here</a>.</h4>
            @endif
           </div>
     </div>
