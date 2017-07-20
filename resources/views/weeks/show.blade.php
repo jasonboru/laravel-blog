@@ -117,23 +117,27 @@
 
      <div class="col-md-8 col-md-offset-2">
         <h2>Comments</h2>
-        @foreach($week->weekcomments as $comment)
-          <div class="panel panel-default comment">
-            <div class="panel-heading">
-              <div class="row">
-                <div class="col-md-9">
-                  <img src="https://s3.amazonaws.com/final-project-growshow/uploads/{{ $comment->avatar}}" style="width:32px; height:32px; border-radius:50%;">
+        @if(count($week->weekcomments) > 0)
+            @foreach($week->weekcomments as $comment)
+              <div class="panel panel-default comment">
+                <div class="panel-heading">
+                  <div class="row">
+                    <div class="col-md-9">
+                      <img src="https://s3.amazonaws.com/final-project-growshow/uploads/{{ $comment->avatar}}" style="width:32px; height:32px; border-radius:50%;">
 
-                   {{ $comment->name }}
+                       {{ $comment->name }}
+                    </div>
+                    <div class="col-md-3">
+                      <small> {{ $comment->created_at->format('m,d,Y') }} </small>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-md-3">
-                  <small> {{ $comment->created_at->format('m,d,Y') }} </small>
-                </div>
+                <div class="panel-body">{{ $comment->comment }}</div>
               </div>
-            </div>
-            <div class="panel-body">{{ $comment->comment }}</div>
-          </div>
-        @endforeach
+            @endforeach
+        @else
+          <p>There are no comments for this week yet.... you should add one!</p>
+        @endif
       </div>
     </div>
 
@@ -160,7 +164,7 @@
 
               {{ Form::close()}}
            @else
-             <h4>You need to be logged into your account to leave a comment. If you do not have an account you can <a href="/register">Register Here</a>.</h4>
+             <h4 class="notLogInMsg">You need to be logged into your account to leave a comment. If you do not have an account you can <a href="/register">Register Here</a>.</h4>
            @endif
           </div>
     </div>

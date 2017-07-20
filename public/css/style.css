@@ -6,11 +6,18 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  font-family: 'Oswald', sans-serif;
 }
 
 h1, h2, h3 {
   font-family: 'Ultra', serif;
   color: #5d3e25;
+}
+
+hr {
+	height: 6px;
+	background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;
+    border: 0;
 }
 
 p {
@@ -30,9 +37,18 @@ a:hover {
   color: #c16920;
 }
 
+small {
+  color: #a9a9a9;
+  font-family: 'Oswald', sans-serif;
+}
+
+.blockLink
+{
+
+}
 .well {
   background: url(../images/linedpaper.png) repeat center;
-  box-shadow: 10px 10px 5px #888888;
+  box-shadow: 5px 5px 2px #888888;
 }
 
 .overlay{
@@ -59,6 +75,18 @@ a:hover {
 .panel-default > .panel-heading {
   background-color: #5d3e25;
   color: #fff;
+}
+
+/*
+Dashboard
+*/
+
+.jumbotron {
+  background-color: rgba(238, 238, 238, .9)
+}
+
+.rightIndent {
+  margin-right: 1em;
 }
 
 /* navbar */
@@ -139,11 +167,27 @@ a:hover {
 /* index blade */
 #RGBlogo {
   width: 60%;
+  margin-left: 1.em;
 }
 
 #indexTitle {
   color: #5d3e25;
   font-size: 325%;
+}
+
+.author {
+  font-size: 150%;
+  font-family: 'Ultra', serif;
+  color: #bdbe31;
+
+}
+
+.my-picture {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 3px 3px 2px #888888;
 }
 
 .indexBtn {
@@ -171,7 +215,10 @@ a:hover {
 /* all grows index */
 
 .allGrowsImg {
-    box-shadow: 10px 10px 5px #888888;
+
+    height: 120px;
+    width: 100%;
+    object-fit: cover;
 }
 
 /* grows.show */
@@ -186,22 +233,35 @@ a:hover {
   margin-bottom: 15px;
 }
 
+.cropParam {
+  height: 400px;
+}
+
 .CropImg {
-    box-shadow: 10px 10px 5px #888888;
+  height: 400px;
+  object-fit: cover;
 }
 
 .allWeekImg {
-    box-shadow: 10px 10px 5px #888888;
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
 }
-
+.notesWell {
+  min-height: 200px;
+}
 .postNotes {
   font-size: 170%;
+}
+.notLogInMsg {
+  line-height: 1.4em;
 }
 
 /* week.show */
 
 .weekImg {
-    box-shadow: 10px 10px 5px #888888;
+    height: 500px;
+    object-fit: cover;
 }
 
 .weekCatHeading {

@@ -8,7 +8,10 @@
         <h1>{{$post->crop_name}}</h1>
       </div>
       <div class="col-sm-6">
-        <small class="pull-right">Written on {{$post->created_at->format('m-d-Y')}} by {{$post->user->name}}</small>
+        <div class="pull-right">
+        <small>Written on {{$post->created_at->format('m-d-Y')}} by</small><span class="author"> {{$post->user->name}}<span>
+          <img src="https://s3.amazonaws.com/final-project-growshow/uploads/{{ $post->user->avatar}}" style="width:32px; height:32px; border-radius:50%; margin-left:5px;">
+        </div>
       </div>
 
     </div>
@@ -23,7 +26,7 @@
       </a>
     </div>
     <div class="col-md-6 col-sm-6">
-      <div class="well">
+      <div class="well cropParam">
           <div class="row">
             <div class="col-md-4 col-sm-4">
               <h3>Method:</h3>
@@ -55,10 +58,9 @@
     </div>
   </div>
 
-  <br><br>
   <h3>Notes:</h3>
-  <div class="well">
-    <span class="postNotes">{!!$post->body!!}</span>
+  <div class="well notesWell">
+    <span class="postNotes">{!! $post->body !!}</span>
   </div>
 
   <hr>
@@ -96,7 +98,7 @@
           </div>
         @endforeach
     @else
-        <p>No weeks found</p>
+        <p>There are no weeks listed for this crop yet.</p>
     @endif
 
     @if(!Auth::guest())
@@ -117,23 +119,27 @@
 
       <div class="col-md-8 col-md-offset-2">
         <h2>Comments</h2>
-        @foreach($post->comments as $comment)
-          <div class="panel panel-default comment">
-            <div class="panel-heading">
-              <div class="row">
-                <div class="col-md-9">
-                  <img src="https://s3.amazonaws.com/final-project-growshow/uploads/{{ $comment->avatar}}" style="width:32px; height:32px; border-radius:50%;">
+          @if(count($post->comments) > 0)
+            @foreach($post->comments as $comment)
+              <div class="panel panel-default comment">
+                <div class="panel-heading">
+                  <div class="row">
+                    <div class="col-md-9">
+                      <img src="https://s3.amazonaws.com/final-project-growshow/uploads/{{ $comment->avatar}}" style="width:32px; height:32px; border-radius:50%;">
 
-                   {{ $comment->name }}
+                       {{ $comment->name }}
+                    </div>
+                    <div class="col-md-3">
+                      <small> {{ $comment->created_at->format('m,d,Y') }} </small>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-md-3">
-                  <small> {{ $comment->created_at->format('m,d,Y') }} </small>
-                </div>
+                <div class="panel-body">{{ $comment->comment }}</div>
               </div>
-            </div>
-            <div class="panel-body">{{ $comment->comment }}</div>
-          </div>
-        @endforeach
+            @endforeach
+          @else
+            <p>There are no comments for this post yet.... you should add one!</p>
+          @endif
       </div>
     </div>
 
@@ -161,7 +167,7 @@
 
         {{ Form::close()}}
         @else
-          <h4>You need to be logged into your account to leave a comment. If you do not have an account you can <a href="/register">Register Here</a>.</h4>
+          <h4 class="notLogInMsg">You need to be logged into your account to leave a comment. If you do not have an account you can <a href="/register">Register Here</a>.</h4>
         @endif
       </div>
     </div>
