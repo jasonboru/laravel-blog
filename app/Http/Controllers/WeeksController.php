@@ -98,8 +98,9 @@ class WeeksController extends Controller
      */
     public function show($id)
     {
-
       $week = Week::find($id);
+      $uid = $week->post->user_id;
+
       return view('weeks.show')->with('week', $week);
     }
 
@@ -112,11 +113,6 @@ class WeeksController extends Controller
     public function edit(Request $request, $id)
     {
       $week = Week::find($id);
-
-      // Check for correct user_id
-      //if(auth()->user()->id !== $post->user_id){
-        //return redirect('/posts')->with('error', 'Unauthorized Page');
-      //}
 
       return view('weeks.edit')->with('week', $week)->withPost($request->post);
     }
@@ -188,12 +184,8 @@ class WeeksController extends Controller
     {
       $week = Week::find($id);
 
-      // Check for correct user_id
-      //if(auth()->user()->id !== $post->user_id){
-        //return redirect('/posts')->with('error', 'Unauthorized Page');
-      //}
-
       if($week->week_image !== 'noimage.jpg'){
+        
         // Delete the image
         Storage::delete('public/week_images/'.$week->week_image);
       }

@@ -72,7 +72,7 @@
 
           <div class="row">
             <div class="col-md-4 col-sm-4">
-              <h3 class="weekCatHeading">Avgerage Temperature:</h3>
+              <h3 class="weekCatHeading">Average Temperature:</h3>
             </div>
             <div class="col-md-8 col-sm-8">
               <div> <h3 class="weekInputHeading weekInputResult">{{$week->temperature}}&#8457</h3></div>
@@ -81,7 +81,7 @@
 
           <div class="row">
             <div class="col-md-4 col-sm-4">
-              <h3 class="weekCatHeading">Avgerage Humidity:</h3>
+              <h3 class="weekCatHeading">Average Humidity:</h3>
             </div>
             <div class="col-md-8 col-sm-8">
               <div> <h3 class="weekInputHeading weekInputResult">{{$week->humidity}}%</h3></div>
@@ -103,19 +103,19 @@
 
 
     @if(!Auth::guest())
-      {{--  @if (Auth::user()->id == $post->user_id) --}}
+      @if (Auth::user()->id == $week->post->user_id)
           <a href="/weeks/{{$week->id}}/edit?post={{ $week->post_id }}" class="btn btn-default">Edit Week</a>
 
           {!!Form::open(['action' => ['WeeksController@destroy', $week->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
               {{Form::hidden('_method', 'DELETE')}}
               {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
           {!!Form::close()!!}
-      {{--  @endif --}}
+      @endif
     @endif
 
     <div class="row">
 
-      <div class="col-md-8 col-md-offset-2">
+     <div class="col-md-8 col-md-offset-2">
         <h2>Comments</h2>
         @foreach($week->weekcomments as $comment)
           <div class="panel panel-default comment">
