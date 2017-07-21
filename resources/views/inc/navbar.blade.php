@@ -13,7 +13,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/dashboard') }}">
+                <a class="navbar-brand" href="/">
                     {{-- {{ config('app.name', 'Laravel') }} --}}
                     <img id="brandLogo" src="{{ asset('images/RGB_logo_white.png') }}" alt="Root Grow Bloom logo">
                 </a>
@@ -26,7 +26,7 @@
                 </ul>
 
                 <ul class="nav navbar-nav">
-                      <li><a href="/">Home</a></li>
+                      <li><a href="{{ url('/dashboard') }}">Home</a></li>
                       <li><a href="/about">About</a></li>
                       <li><a href="/posts">All Grows</a></li>
                       <li><a href="/posts/create">Create Post</a></li>

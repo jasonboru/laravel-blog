@@ -164,6 +164,11 @@ Dashboard
   margin-bottom: 5px;
 }
 
+/*profile blade*/
+.profileTitle {
+  color: #fff;
+}
+
 /* index blade */
 #RGBlogo {
   width: 60%;

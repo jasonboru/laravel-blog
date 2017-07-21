@@ -22,11 +22,11 @@
                         <tr>
                           <td width="20%"><img style="width:100%" src="https://s3.amazonaws.com/final-project-growshow/uploads/{{$post->cover_image}}"></td>
                           <td><a href="/posts/{{$post->id}}">{{$post->crop_name}}</a> - {{$post->strain}}</td>
-                          <td><a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a></td>
+                          <td><a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit Post</a></td>
                           <td>
                             {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right bbDelete'])!!}
                                 {{Form::hidden('_method', 'DELETE')}}
-                                {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+                                {{Form::submit('Delete Post', ['class' => 'btn btn-danger bbDelete'])}}
                             {!!Form::close()!!}
                           </td>
                         </tr>
