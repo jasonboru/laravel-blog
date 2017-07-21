@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+  <div class="overlay">
   <h1>Create New Grow</h1>
 
   {!! Form::open(['action' => 'PostsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
@@ -40,5 +41,6 @@
     </div>
     {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
   {!! Form::close() !!}
+  </div>
 
 @endsection
