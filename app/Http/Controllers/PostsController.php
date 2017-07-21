@@ -94,7 +94,11 @@ class PostsController extends Controller
         $post->lighting = $request->input('lighting');
         $post->body = $request->input('body');
         $post->user_id = auth()->user()->id;
-        $post->cover_image = $fileNameToStore . '/' . $hashedName;
+        if($request->hasFile('cover_image')){
+          $post->cover_image = $fileNameToStore . '/' . $hashedName;
+        } else {
+          $post->cover_image = 'noimage.jpg';
+        }
         $post->save();
 
         return redirect('/posts')->with('success', 'Post Created');
