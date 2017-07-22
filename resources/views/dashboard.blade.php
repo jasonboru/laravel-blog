@@ -9,10 +9,10 @@
 
                 <div class="panel-body">
                   <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-10">
                       <h3><span class="allPostHeading">All Posts for </span>{{Auth::user()->name}}</h3>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-2">
                       <a href="/posts/create" class="btn btn-primary pull-right dashCreate">Create a New Post</a>
                     </div>
                   </div>
