@@ -74,16 +74,24 @@ i
   margin-bottom: 20px;
 }
 
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+.btn-primary, .btn-primary:active, .btn-primary:visited {
     background-color: #bdbe31;
     border-color: #bdbe31;
     box-shadow: 3px 3px 1px #888888;
 }
 
-.btn-danger, .btn-danger:hover, .btn-danger:active, .btn-danger:visited {
+.btn-primary:hover {
+  background-color: #adae2d;
+}
+
+.btn-danger, .btn-danger:active, .btn-danger:visited {
     background-color: #c16920;
     border-color: #c16920;
     box-shadow: 3px 3px 1px #888888;
+}
+
+.btn-danger:hover {
+    background-color: #df7013;
 }
 
 .btn-success, .btn-success:hover, .btn-success:active, .btn-success:visited {
@@ -203,7 +211,7 @@ i
 }
 
 .dashCreate {
-  margin: 10px 0;
+  margin: 10px 10px;
   font-size: 150%;
 }
 
