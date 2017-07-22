@@ -143,7 +143,7 @@
                       <span class="commenterName">{{ $comment->name }}</span>
                     </div>
                     <div class="col-md-3">
-                      <small> {{ $comment->created_at->format('m,d,Y') }} </small>
+                      <small> {{ $comment->created_at->format('M. jS, Y - g:ia') }} </small>
                     </div>
                   </div>
                 </div>
