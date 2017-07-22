@@ -2,10 +2,10 @@
 
 @section('content')
   <div class="row">
-    <div class="col-sm-1">
+    <div class="col-md-1 col-sm-2">
         <a href="/posts" class="btn btn-lg btn-primary goBack">Go Back</a>
     </div>
-    <div class="scrollers col-sm-11">
+    <div class="scrollers col-md-11 col-sm-10">
       <a href="#seeWeeks" class="btn btn-lg btn-default navBtn">Weeks</a>
       <a href="#seeComments" class="btn btn-lg btn-default navBtn">Read Comments</a>
       <a href="#comment-form" class="btn btn-lg btn-default navBtn">Write Comment</a>
@@ -134,7 +134,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="panel-body comment-body">{{ $comment->comment }}</div>
+                <div class="panel-body comment-body">{!! $comment->comment !!}</div>
               </div>
             @endforeach
           @else
@@ -158,7 +158,7 @@
 
             <div class="col-md-12">
               {{ Form::label('comment', "Comment:") }}
-              {{ Form::textarea('comment', null, ['class' => 'form-control', 'rows' => '5']) }}
+              {{ Form::textarea('comment', null, ['id' => 'article-ckeditor', 'class' => 'form-control', 'rows' => '5']) }}
 
               {{ Form::submit('Add Comment', ['class' => 'btn-success btn-block', 'style' => 'margin:15px 0;']) }}
             </div>
