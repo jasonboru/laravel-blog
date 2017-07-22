@@ -290,6 +290,14 @@ i
     object-fit: cover;
 }
 
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+    background-color: #bdbe31;
+    border-color: #bdbe31;
+}
+
+.pagination > li > a, .pagination > li > span {
+    color: #bdbe31;
+}
 /*
     ----------------------------
     ----- 6. about blade -------
