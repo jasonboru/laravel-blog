@@ -82,7 +82,11 @@ class WeeksController extends Controller
       $week->temperature = $request->input('temperature');
       $week->humidity = $request->input('humidity');
       $week->notes = $request->input('notes');
-      $week->week_image = $fileNameToStore . '/' . $hashedName;
+      if($request->hasFile('week_image')){
+        $week->week_image = $fileNameToStore . '/' . $hashedName;
+      } else {
+        $week->week_image = 'noimage.jpg';
+      }
       $week->post_id = $request->input('post_id');
       $week->save();
 
@@ -166,6 +170,8 @@ class WeeksController extends Controller
       $week->notes = $request->input('notes');
       if($request->hasFile('week_image')){
         $week->week_image = $fileNameToStore . '/' . $hashedName;
+      } else {
+        $week->week_image = 'noimage.jpg';
       }
 
       $week->save();
@@ -185,7 +191,7 @@ class WeeksController extends Controller
       $week = Week::find($id);
 
       if($week->week_image !== 'noimage.jpg'){
-        
+
         // Delete the image
         Storage::delete('public/week_images/'.$week->week_image);
       }
