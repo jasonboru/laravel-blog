@@ -17,7 +17,9 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Ultra" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-    
+    <!--font awesome -->
+    <script src="https://use.fontawesome.com/efcbb89f3b.js"></script>
+
 </head>
 <body>
     <div id="app">

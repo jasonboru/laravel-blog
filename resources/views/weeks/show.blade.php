@@ -1,7 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-  <a href="/posts/{{$week->post_id}}" class="btn btn-lg btn-primary goBack">Go Back</a>
+
+  <div class="row">
+    <div class="col-sm-1">
+        <a href="/posts/{{$week->post_id}}" class="btn btn-lg btn-primary goBack">Go Back</a>
+    </div>
+    <div class="scrollers col-sm-11">
+      <a href="#seeWeekComments" class="btn btn-lg btn-default navBtn">Read Comments</a>
+      <a href="#weekcomment-form" class="btn btn-lg btn-default navBtn">Write Comment</a>
+    </div>
+  </div>
+
+
+
+
 
   <div class='overlay'>
 
@@ -10,7 +23,10 @@
         <h1><h1>Week # {{$week->week_num}}</h1></h1>
       </div>
       <div class="col-sm-6">
-        <small class="pull-right">Written on {{$week->created_at->format('m-d-Y')}}</small>
+        <div class="pull-right">
+        <small>Written on {{$week->created_at->format('m-d-Y')}}</small><span class="author"> {{$week->post->user->name}}<span>
+          <img src="https://s3.amazonaws.com/final-project-growshow/uploads/{{ $week->post->user->avatar}}" style="width:32px; height:32px; border-radius:50%; margin-left:5px;">
+        </div>
       </div>
 
     </div>
@@ -20,7 +36,7 @@
     <div class="row">
       <div class="col-md-6 col-sm-6">
         <a href="https://s3.amazonaws.com/final-project-growshow/uploads/{{$week->week_image}}" data-lightbox="{{$week->week_image}}" data-title="Week # {{$week->week_num}}">
-          <img class="weekImg" style="width:100%" src="https://s3.amazonaws.com/final-project-growshow/uploads/{{$week->week_image}}">
+          <img class="weekImg img-rounded" style="width:100%" src="https://s3.amazonaws.com/final-project-growshow/uploads/{{$week->week_image}}">
         </a>
       </div>
       <div class="col-md-6 col-sm-6">
@@ -95,7 +111,7 @@
     <br><br>
 
     <h2>Notes</h2>
-    <div class="well">
+    <div class="well notesWell">
       <span class="weekNotes">{!!$week->notes!!}</span>
     </div>
 
@@ -104,16 +120,16 @@
 
     @if(!Auth::guest())
       @if (Auth::user()->id == $week->post->user_id)
-          <a href="/weeks/{{$week->id}}/edit?post={{ $week->post_id }}" class="btn btn-default">Edit Week</a>
+          <a href="/weeks/{{$week->id}}/edit?post={{ $week->post_id }}" class="btn btn-lg btn-default">Edit Week</a>
 
           {!!Form::open(['action' => ['WeeksController@destroy', $week->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
               {{Form::hidden('_method', 'DELETE')}}
-              {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+              {{Form::submit('Delete Week', ['class' => 'btn btn-lg btn-danger'])}}
           {!!Form::close()!!}
       @endif
     @endif
 
-    <div class="row">
+    <div id="seeWeekComments" class="row">
 
      <div class="col-md-8 col-md-offset-2">
         <h2>Comments</h2>
@@ -123,16 +139,15 @@
                 <div class="panel-heading">
                   <div class="row">
                     <div class="col-md-9">
-                      <img src="https://s3.amazonaws.com/final-project-growshow/uploads/{{ $comment->avatar}}" style="width:32px; height:32px; border-radius:50%;">
-
-                       {{ $comment->name }}
+                      <img src="https://s3.amazonaws.com/final-project-growshow/uploads/{{ $comment->avatar}}" style="width:40px; height:40px; border-radius:50%;">
+                      <span class="commenterName">{{ $comment->name }}</span>
                     </div>
                     <div class="col-md-3">
                       <small> {{ $comment->created_at->format('m,d,Y') }} </small>
                     </div>
                   </div>
                 </div>
-                <div class="panel-body">{{ $comment->comment }}</div>
+                <div class="panel-body comment-body">{{ $comment->comment }}</div>
               </div>
             @endforeach
         @else
@@ -167,7 +182,22 @@
              <h4 class="notLogInMsg">You need to be logged into your account to leave a comment. If you do not have an account you can <a href="/register">Register Here</a>.</h4>
            @endif
           </div>
+
     </div>
   </div>
+
+  <footer>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-12 top">
+                    <span id="to-top">
+                        <i class="fa fa-chevron-up fa-3x circle-icon" aria-hidden="true"></i>
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </footer>
 
 @endsection

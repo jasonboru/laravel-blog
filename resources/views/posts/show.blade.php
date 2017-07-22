@@ -1,7 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-  <a href="/posts" class="btn btn-lg btn-primary goBack">Go Back</a>
+  <div class="row">
+    <div class="col-sm-1">
+        <a href="/posts" class="btn btn-lg btn-primary goBack">Go Back</a>
+    </div>
+    <div class="scrollers col-sm-11">
+      <a href="#seeWeeks" class="btn btn-lg btn-default navBtn">Weeks</a>
+      <a href="#seeComments" class="btn btn-lg btn-default navBtn">Read Comments</a>
+      <a href="#comment-form" class="btn btn-lg btn-default navBtn">Write Comment</a>
+    </div>
+  </div>
+
+
+
   <div class="overlay">
     <div class="row">
       <div class="col-sm-6">
@@ -22,14 +34,14 @@
   <div class="row">
     <div class="col-md-6 col-sm-6">
       <a href="https://s3.amazonaws.com/final-project-growshow/uploads/{{$post->cover_image}}" data-lightbox="{{$post->cover_image}}" data-title="{{$post->crop_name}} - {{$post->strain}}">
-        <img class="CropImg" style="width:100%" src="https://s3.amazonaws.com/final-project-growshow/uploads/{{$post->cover_image}}">
+        <img class="CropImg img-rounded" style="width:100%" src="https://s3.amazonaws.com/final-project-growshow/uploads/{{$post->cover_image}}">
       </a>
     </div>
     <div class="col-md-6 col-sm-6">
       <div class="well cropParam">
           <div class="row">
             <div class="col-md-4 col-sm-4">
-              <h3>Method:</h3>
+              <h3 class="postInputHeading">Method:</h3>
             </div>
             <div class="col-md-8 col-sm-8">
               <div><h3 class="postInputResult">{{$post->method}}</h3></div>
@@ -38,7 +50,7 @@
 
           <div class="row">
             <div class="col-md-4 col-sm-4">
-              <h3>Location:</h3>
+              <h3 class="postInputHeading">Location:</h3>
             </div>
             <div class="col-md-8 col-sm-8">
               <div><h3 class="postInputResult"> {{$post->location}}</h3></div>
@@ -47,7 +59,7 @@
 
           <div class="row">
             <div class="col-md-4 col-sm-4">
-              <h3>Lighting:</h3>
+              <h3 class="postInputHeading">Lighting:</h3>
             </div>
             <div class="col-md-8 col-sm-8">
               <div><h3 class="postInputResult"> {{$post->lighting}}</h3></div>
@@ -64,7 +76,7 @@
   </div>
 
   <hr>
-
+  <div id="seeWeeks">
   <h1>Weeks</h1>
      @if(count($weeks) > 0)
         @foreach($weeks as $week)
@@ -72,7 +84,7 @@
             <div class="row">
               <div class="col-md-3 col-sm-3">
                 <a href="/weeks/{{$week->id}}">
-                  <img class="allWeekImg" style="width:100%" src="https://s3.amazonaws.com/final-project-growshow/uploads/{{$week->week_image}}">
+                  <img class="allWeekImg img-rounded" style="width:100%" src="https://s3.amazonaws.com/final-project-growshow/uploads/{{$week->week_image}}">
                 </a>
               </div>
               <div class="col-md-9 col-sm-9">
@@ -88,22 +100,23 @@
     @else
         <p>There are no weeks listed for this crop yet.</p>
     @endif
+  </div>
 
     @if(!Auth::guest())
         @if (Auth::user()->id == $post->user_id)
-          <a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit Post</a>
-          <a href="/weeks/create?post={{ $post->id }}" class="btn btn-primary">Add a Week</a>
+          <a href="/posts/{{$post->id}}/edit" class="btn btn-lg btn-default">Edit Post</a>
+          <a href="/weeks/create?post={{ $post->id }}" class="btn btn-lg btn-primary addWeekBtn ">Add a Week</a>
 
           {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
               {{Form::hidden('_method', 'DELETE')}}
-              {{Form::submit('Delete Post', ['class' => 'btn btn-danger bbDelete'])}}
+              {{Form::submit('Delete Post', ['class' => 'btn btn-lg btn-danger bbDelete'])}}
           {!!Form::close()!!}
         @endif
     @endif
 
     <hr>
 
-    <div class="row">
+    <div id="seeComments" class="row">
 
       <div class="col-md-8 col-md-offset-2">
         <h2>Comments</h2>
@@ -113,16 +126,15 @@
                 <div class="panel-heading">
                   <div class="row">
                     <div class="col-md-9">
-                      <img src="https://s3.amazonaws.com/final-project-growshow/uploads/{{ $comment->avatar}}" style="width:32px; height:32px; border-radius:50%;">
-
-                       {{ $comment->name }}
+                      <img src="https://s3.amazonaws.com/final-project-growshow/uploads/{{ $comment->avatar}}" style="width:40px; height:40px; border-radius:50%;">
+                      <span class="commenterName">{{ $comment->name }}</span>
                     </div>
                     <div class="col-md-3">
-                      <small> {{ $comment->created_at->format('m,d,Y') }} </small>
+                      <small> {{ $comment->created_at->format('M. jS, Y - g:ia') }} </small>
                     </div>
                   </div>
                 </div>
-                <div class="panel-body">{{ $comment->comment }}</div>
+                <div class="panel-body comment-body">{{ $comment->comment }}</div>
               </div>
             @endforeach
           @else
@@ -162,7 +174,19 @@
 
   </div>
 
+  <footer>
+        <div class="container">
+            <div class="row">
 
+                <div class="col-sm-12 top">
+                    <span id="to-top">
+                        <i class="fa fa-chevron-up fa-3x circle-icon" aria-hidden="true"></i>
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </footer>
 
 
 @endsection

@@ -1,4 +1,8 @@
-
+/*
+    ----------------------------
+    ----- 1. Global Styles -----
+    ----------------------------
+*/
 
 body {
   background: url(../images/growshow-background1.jpg) no-repeat center center fixed;
@@ -42,6 +46,19 @@ small {
   font-family: 'Oswald', sans-serif;
 }
 
+i
+{
+  color: #5d3e25;
+  display: inline-block;
+  border-radius: 100px;
+  box-shadow: 0px 0px 6px #888;
+  margin-bottom: 15px;
+}
+
+.panel-body {
+  background-color: #eeeeee;
+}
+
 .blockLink
 {
 
@@ -60,16 +77,23 @@ small {
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: #bdbe31;
     border-color: #bdbe31;
+    box-shadow: 3px 3px 1px #888888;
 }
 
 .btn-danger, .btn-danger:hover, .btn-danger:active, .btn-danger:visited {
     background-color: #c16920;
     border-color: #c16920;
+    box-shadow: 3px 3px 1px #888888;
 }
 
 .btn-success, .btn-success:hover, .btn-success:active, .btn-success:visited {
     background-color: #5d3e25;
     border-color: #5d3e25;
+    box-shadow: 3px 3px 1px #888888;
+}
+
+.btn-default {
+    box-shadow: 3px 3px 1px #888888;
 }
 
 .panel-default > .panel-heading {
@@ -78,8 +102,11 @@ small {
 }
 
 /*
-Dashboard
+    ----------------------------
+    ----- 2. Nav Bar -----------
+    ----------------------------
 */
+
 
 .jumbotron {
   background-color: rgba(238, 238, 238, .9)
@@ -164,12 +191,57 @@ Dashboard
   margin-bottom: 5px;
 }
 
-/*profile blade*/
+/*
+    ----------------------------
+    ----- 3. Dashboard ---------
+    ----------------------------
+*/
+.allDashImg {
+  height: 120px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.dashCreate {
+  margin: 10px 0;
+  font-size: 150%;
+}
+
+.dashBtn {
+    width:60%;
+}
+
+.dashWell {
+  width: 99%;
+  margin-left: 10px:
+}
+
+.allPostHeading {
+  color: #c16920;
+  font-family: 'Oswald', sans-serif;
+}
+
+/*
+    ----------------------------
+    ----- 4. Profile -----------
+    ----------------------------
+*/
+
 .profileTitle {
   color: #fff;
 }
 
-/* index blade */
+.profileAvatar {
+  margin-left: 50px;
+  box-shadow: 3px 3px 2px #888888;
+}
+
+/*
+    ----------------------------
+    ----- 5. post.index --------
+    ----------------------------
+*/
+
 #RGBlogo {
   width: 60%;
   margin-left: 1.em;
@@ -184,24 +256,44 @@ Dashboard
   font-size: 150%;
   font-family: 'Ultra', serif;
   color: #bdbe31;
-
+  margin-left: 5px;
 }
 
-.my-picture {
+.authorAvatar {
   width: 120px;
   height: 120px;
   object-fit: cover;
   border-radius: 50%;
+  margin-left: 50px;
   box-shadow: 3px 3px 2px #888888;
+}
+
+.indexStrain {
+  color: #c16920;
 }
 
 .indexBtn {
   width: 100px;
 }
 
-/* about blade */
+.allGrowsImg {
+    height: 120px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/*
+    ----------------------------
+    ----- 6. about blade -------
+    ----------------------------
+*/
+
 .aboutTitle {
   color: #5d3e25;
+}
+
+.appName {
+  color: #c16920;
 }
 
 .aboutCopy {
@@ -211,31 +303,42 @@ Dashboard
 
 .aboutAddress {
   font-size: 125%;
+  color: #c16920;
+  margin-top: 10px;
 }
 
 #aboutLogo {
   width: 100%;
 }
 
-/* all grows index */
+/*
+    ----------------------------
+    ----- 7. post.show ---------
+    ----------------------------
+*/
 
-.allGrowsImg {
-
-    height: 120px;
-    width: 100%;
-    object-fit: cover;
-}
-
-/* grows.show */
 .strain {
   color: #c16920;
 }
 
+.postInputHeading {
+  font-family: 'Oswald', sans-serif;
+  margin-left: 20px;
+}
+
 .postInputResult {
   color: #c16920;
+  font-family: 'Oswald', sans-serif;
+  margin-left: 10px;
+
 }
 .goBack {
   margin-bottom: 15px;
+}
+
+.navBtn {
+  margin-bottom: 15px;
+  margin-left: 5px;
 }
 
 .cropParam {
@@ -258,11 +361,41 @@ Dashboard
 .postNotes {
   font-size: 170%;
 }
+
+.addWeekBtn {
+  margin-left: 5px;
+}
+
 .notLogInMsg {
   line-height: 1.4em;
 }
+.commenterName {
+  position: absolute;
+  font-size: 175%;
+  margin-left: 15px;
+}
 
-/* week.show */
+.comment-body {
+  font-size: 150%;
+}
+
+.top {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.circle-icon {
+    cursor: pointer;
+    background: #fff;
+    padding:10px;
+    border-radius: 50%;
+}
+
+/*
+    ----------------------------
+    ----- 8. week.show ---------
+    ----------------------------
+*/
 
 .weekImg {
     height: 500px;
@@ -270,22 +403,43 @@ Dashboard
 }
 
 .weekCatHeading {
-  font-size: 120%
-}
-
-.weekInputHeading{
-  font-size: 160%;
+  font-family: 'Oswald', sans-serif;
+  margin-left: 20px;
 }
 
 .weekInputResult {
   color: #c16920;
+  font-family: 'Oswald', sans-serif;
+  margin-left: 10px;
 }
 
 .weekNotes {
   font-size: 170%;
 }
 
-/* week.update */
+/*
+    ----------------------------
+    ----- 9. week.edit ---------
+    ----------------------------
+*/
 .weekSubmit {
   margin-left: 15px;
+}
+
+/*
+    ----------------------------
+    ----- 9. media queries -----
+    ----------------------------
+*/
+
+@media (max-width: 768px) {
+  .authorAvatar {
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .authorAvatar {
+    margin-left: 50px;
+  }
 }

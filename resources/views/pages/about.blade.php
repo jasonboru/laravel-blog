@@ -3,9 +3,14 @@
 @section('content')
   <div class="well">
       <h1 class="aboutTitle text-center">About the RGB Grow Journal</h1>
-      <p class="aboutCopy">  RGB (RootGrowBloom) is retailer that supplies all the products you need to garden hydroponically or traditionally in soil. Beyond that, we supply you with knowledge and tools to keep your garden and your mind growing.
-        The RGB Grow Journal is one such tool. It is an app to help you journal and share your grow from seedling to harvest. Keep track of week to week statistics to help document what went right and what went wrong.</p>
-      <p class="aboutCopy">  Share your posts with other growers and checkout other peoples grows for ideas and information. Leave comments and conect and never stop growing.</p>
+
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <p class="aboutCopy">  RGB (RootGrowBloom) is retailer that supplies all the products you need to garden hydroponically or traditionally in soil. Beyond that, we supply you with knowledge and tools to keep your garden and your mind growing.
+            The <span class="appName">RGB Grow Journal</span> is one such tool. It is an app to help you journal and share your grow from seedling to harvest. Keep track of week to week statistics to help document what went right and what went wrong.</p>
+          <p class="aboutCopy">  Share your posts with other growers and checkout other peoples grows for ideas and information. Leave comments and conect and never stop growing.</p>
+        </div>
+      </div>
       <hr>
       <h3 class="aboutTitle text-center">  Visit our store or call us with any questions</h3>
 
